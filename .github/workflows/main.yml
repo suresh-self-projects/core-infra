@@ -28,7 +28,7 @@ jobs:
 
     # Step 3: Install SSH agent to authenticate with remote servers
     - name: Install SSH Agent
-      uses: webfactory/ssh-agent@v0.8.1
+      uses: webfactory/ssh-agent@v0.9.0
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
