@@ -26,6 +26,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install ansible
 
+    - name: Disable host key checking
+      run: |
+        export ANSIBLE_HOST_KEY_CHECKING=False
+
     # Step 3: Install SSH agent to authenticate with remote servers
     - name: Install SSH Agent
       uses: webfactory/ssh-agent@v0.9.0

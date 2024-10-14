@@ -35,4 +35,4 @@ jobs:
     # Step 4: Run the Ansible playbook
     - name: Run Ansible Playbook
       run: |
-        ansible-playbook -i inventory.ini install_k8s_argocd.yml
+        ansible-playbook -i ./02-ansible-install-microk8s/inventory.ini ./02-ansible-install-microk8s/install_microk8s.yml

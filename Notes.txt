@@ -1,0 +1,46 @@
+microk8s installation
+=======================
+https://microk8s.io/?_gl=1*vmd3qv*_gcl_au*NjU0MzkyODE3LjE3MjY0NTk5MzM.
+
+
+
+Get worker nodes
+microk8s kubectl get nodes
+microk8s kubectl get nodes -o wide
+
+Get cluster nodes
+microk8s kubectl get services -o wide
+
+Cluster info
+microk8s kubectl cluster-info
+
+
+
+sudo hostnamectl set-hostname clusternode
+sudo reboot now
+
+
+Label the nodes
+===================
+microk8s kubectl label node controlplane node-role.kubernetes.io/master=
+
+microk8s kubectl label node worknode node-role.kubernetes.io/worker=
+
+
+Export kube config
+================
+microk8s config > ~/.kube/config
+
+
+
+Ansible
+=========
+ansible-playbook -i inventory.ini install_microk8s.yml 
+ansible-galaxy role init role_argocd
+
+Ref
+====
+Install Microk8s via Ansible
+        https://www.lakshminp.com/installing-microk8s-using-ansible/
+        https://github.com/8grams/ansible-microk8s/tree/main
+
