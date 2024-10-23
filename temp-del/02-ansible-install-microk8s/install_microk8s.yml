@@ -1,0 +1,12 @@
+- hosts: all
+  roles:
+    # - role: 'role_microk8s'
+    #   vars:
+    #     microk8s_plugins:
+    #       dns: "1.1.1.1"
+    #       ingress: true
+    #       metrics-server: true
+    #       cert-manager: true
+    #       openebs: true
+
+    - role: 'role_argocd'

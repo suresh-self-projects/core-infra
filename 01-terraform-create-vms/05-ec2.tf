@@ -37,9 +37,6 @@ resource "aws_instance" "master_node" {
   user_data = <<-EOF
     #cloud-config
     hostname: ${count.index == 0 ? "master" : "node0${count.index}"}
-    sudo apt update
-    sudo apt install python3-pip -y
-    sudo pip3 install kubernetes --break-system-packages
   EOF
 
 tags = {

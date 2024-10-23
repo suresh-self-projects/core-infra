@@ -1,0 +1,38 @@
+name: Run Ansible Playbook
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  ansible:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Check out the repository
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Step 2: Set up Python environment and install Ansible
+    - name: Set up Python and install Ansible
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install Ansible
+      run: |
+        python -m pip install --upgrade pip
+        pip install ansible
+
+    # Step 3: Install SSH agent to authenticate with remote servers
+    - name: Install SSH Agent
+      uses: webfactory/ssh-agent@v0.8.1
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    # Step 4: Run the Ansible playbook
+    - name: Run Ansible Playbook
+      run: |
+        ansible-playbook -i ./02-ansible-install-microk8s/inventory.ini ./02-ansible-install-microk8s/install_microk8s.yml

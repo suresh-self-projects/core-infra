@@ -1,4 +1,6 @@
 ---
+- import_tasks: python-modules.yml
+
 - import_tasks: install.yml
 
 - name: configure users

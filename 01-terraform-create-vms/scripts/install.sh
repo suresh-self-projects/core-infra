@@ -1,4 +1,7 @@
 #!/bin/bash
+sudo apt update
+sudo apt install python3-pip -y
+sudo pip3 install kubernetes --break-system-packages
 sudo hostnamectl set-hostname clusternode
 sudo snap install microk8s --classic --channel=1.31
 sudo usermod -a -G microk8s $USER

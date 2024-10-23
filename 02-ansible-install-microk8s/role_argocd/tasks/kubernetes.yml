@@ -2,13 +2,20 @@
 
 - run_once: yes
   block:
-    - name: ARGOCD KUBERNETES | Download Kubernetes yaml file definition
-      get_url:
-        url: https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+    # - name: ARGOCD KUBERNETES | Download Kubernetes yaml file definition
+    #   get_url:
+    #     url: https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+    #     dest: /tmp/argocd_install.yaml
+    #     owner: ubuntu
+    #     group: ubuntu
+    #     mode: 0440
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: ../files/argocd-install.yaml
         dest: /tmp/argocd_install.yaml
         owner: ubuntu
         group: ubuntu
-        mode: 0440
+        mode: '0440'
 
     - name: ARGOCD KUBERNETES | Manage Kubernetes objects
       k8s:

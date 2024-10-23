@@ -35,6 +35,7 @@ microk8s config > ~/.kube/config
 
 Ansible
 =========
+export ANSIBLE_HOST_KEY_CHECKING=False
 ansible-playbook -i inventory.ini install_microk8s.yml 
 ansible-galaxy role init role_argocd
 
@@ -43,4 +44,14 @@ Ref
 Install Microk8s via Ansible
         https://www.lakshminp.com/installing-microk8s-using-ansible/
         https://github.com/8grams/ansible-microk8s/tree/main
+
+
+https://github.com/jaiswaladi246/ArgoCD-1/blob/main/argocd-setup.md
+
+
+
+
+ssh vboxuser@192.168.29.231
+
+
 
