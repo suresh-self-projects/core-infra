@@ -22,8 +22,8 @@
   ansible.builtin.copy:
     src: ../files/argocd
     dest: /bin
-    owner: ubuntu
-    group: ubuntu
+    owner: vboxuser
+    group: vboxuser
     mode: 0755
   become: true
 

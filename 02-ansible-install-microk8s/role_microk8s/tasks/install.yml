@@ -1,10 +1,8 @@
-- name: Make sure snapd is installed
-  package:
-    name:
-      - snapd
-    state: latest
+- name: Install acl
+  ansible.builtin.apt:
+    name: acl
+    state: present
   become: yes
-  when: ansible_distribution != 'Archlinux'
 
 - name: Make sure snapd is installed
   pacman:

@@ -13,8 +13,8 @@
       ansible.builtin.copy:
         src: ../files/argocd-install.yaml
         dest: /tmp/argocd_install.yaml
-        owner: ubuntu
-        group: ubuntu
+        owner: vboxuser
+        group: vboxuser
         mode: '0440'
 
     - name: ARGOCD KUBERNETES | Manage Kubernetes objects

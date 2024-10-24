@@ -51,7 +51,11 @@ https://github.com/jaiswaladi246/ArgoCD-1/blob/main/argocd-setup.md
 
 
 
-ssh vboxuser@192.168.29.231
 
+ssh vboxuser@192.168.29.231
+ssh vboxuser@192.168.29.104
+
+  git config --global user.email "sureshr.tamizan@gmail.com"
+  git config --global user.name "suresh-akidev"
 
 

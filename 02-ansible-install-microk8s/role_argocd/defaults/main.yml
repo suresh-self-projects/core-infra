@@ -17,7 +17,7 @@ argocd_k8s_service_type: NodePort
 # CLI
 argocd_cli_version: 1.0.2
 argocd_cli_url : https://github.com/argoproj/argo-cd/releases/download/v{{ argocd_cli_version }}/argocd-linux-amd64
-argocd_cli_path: /home/ubuntu/argocd
+argocd_cli_path: /home/vboxuser/argocd
 
 # User
 argocd_admin_name: admin

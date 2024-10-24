@@ -1,0 +1,48 @@
+sudo apt update
+
+# RDP
+sudo apt install xrdp -y
+sudo systemctl status xrdp
+
+# Extension app to Customize top bar / move top bar to bottom along with clock
+sudo apt install gnome-shell-extension-manager
+https://extensions.gnome.org/extension/1160/dash-to-panel/ 
+
+# Ansible
+sudo add-apt-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible
+
+# Terraform
+wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt install terraform
+
+# move "show Apps" icon to left
+gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
+
+
+$ sudo apt install --reinstall virtualbox-dkms && sudo apt install libelf-dev
+$ sudo /sbin/vboxconfig
+
+# virtualbox
+sudo dpkg -i virtualbox-7.1_7.1.4-165100~Ubuntu~noble_amd64.deb
+
+# Install SSH
+sudo apt install openssh-server
+
+# To connect virtual box from host
+configure bridged network on second adapter
+File -> tools - > Network manager -> create adapter on Host-only Networks and enable DHCP
+On the VM, 
+    sudo nano /etc/netplan/open_yaml_file
+    In editable notepald, add enp0s8 adapter and set dhcp4: true
+    sudo netplan apply
+    sudo reboot now
+
+# configure SSH for github
+ssh-keygen -t ed25519 -C "sureshr.tamizan@gmail.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+cat ~/.ssh/id_ed25519.pub
+Copy the content and add into github SSH key section
+
