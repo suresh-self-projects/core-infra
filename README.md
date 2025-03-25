@@ -51,6 +51,10 @@ https://github.com/jaiswaladi246/ArgoCD-1/blob/main/argocd-setup.md
 
 
 
+Virtual Machine
+---------------------
+username : vboxuser
+password : welcome
 
 ssh vboxuser@192.168.29.231
 ssh vboxuser@192.168.29.104
@@ -59,3 +63,16 @@ ssh vboxuser@192.168.29.104
   git config --global user.name "suresh-akidev"
 
 
+
+ArgoCD
+============
+get all resource of argocd namespace
+        kubectl get all -n argocd
+
+get default password of argocd
+        kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+
+argocd server to access argocd app
+        Look for argocd-server where it should be NodePort or LoadBalancer -> http://192.168.29.231:32149
+        username : admin
+        password : Welcome@123

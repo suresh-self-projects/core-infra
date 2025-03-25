@@ -21,10 +21,10 @@
         argocd_current_admin_password: "{{ argocd_k8s_pod_name.stdout }}"
       when: argocd_status.stdout == "0" and argocd_current_admin_password == ""
 
-    - name: ARGOCD USERS | Log into ArgoCD with CLI
-      shell: argocd login {{ ansible_host }}:{{ argocd_k8s_https_nodeport.stdout }} --username {{ argocd_admin_name }} --password {{ argocd_current_admin_password }} --insecure
-      run_once: yes
+    # - name: ARGOCD USERS | Log into ArgoCD with CLI
+    #   shell: argocd login {{ ansible_host }}:{{ argocd_k8s_https_nodeport.stdout }} --username {{ argocd_admin_name }} --password {{ argocd_current_admin_password }} --insecure
+    #   run_once: yes
 
-    - name: ARGOCD USERS | Manage ArgoCD Admin password
-      shell: argocd account update-password --current-password {{ argocd_current_admin_password }} --new-password {{ argocd_new_admin_password }} --insecure
-      run_once: yes
+    # - name: ARGOCD USERS | Manage ArgoCD Admin password
+    #   shell: argocd account update-password --current-password {{ argocd_current_admin_password }} --new-password {{ argocd_new_admin_password }} --insecure
+    #   run_once: yes
